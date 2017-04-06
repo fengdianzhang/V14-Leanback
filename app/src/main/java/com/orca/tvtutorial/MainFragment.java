@@ -71,8 +71,8 @@ public class MainFragment extends BrowseFragment {
         // setBadgeDrawable(getActivity().getResources().getDrawable(R.drawable.videos_by_google_banner));
         setTitle("Hello Android TV!"); // Badge, when set, takes precedent
         // over title
-        setHeadersState(HEADERS_ENABLED);
-//        setHeadersState(HEADERS_DISABLED);
+//        setHeadersState(HEADERS_ENABLED);
+        setHeadersState(HEADERS_DISABLED);
         setHeadersTransitionOnBackEnabled(true);
 
         // set fastLane (or headers) background color
@@ -111,6 +111,25 @@ public class MainFragment extends BrowseFragment {
             cardRowAdapter.add(movie);
         }
         mRowsAdapter.add(new ListRow(cardPresenterHeader, cardRowAdapter));
+
+        HeaderItem programPresenterHeader = new HeaderItem(2, "ProgramPresenter");
+        ProgramPresenter programPresenter = new ProgramPresenter();
+        ArrayObjectAdapter programRowAdapter = new ArrayObjectAdapter(programPresenter);
+        for (int i = 0; i < 10; i++) {
+            Movie movie = new Movie();
+            if (i % 3 == 0) {
+                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+            } else if (i % 3 == 1) {
+                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02630.jpg");
+            } else {
+                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02529.jpg");
+            }
+            movie.setTitle("title " + i);
+            movie.setStudio("studio " + i);
+//            movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+            programRowAdapter.add(movie);
+        }
+        mRowsAdapter.add(new ListRow(programPresenterHeader, programRowAdapter));
 
         setAdapter(mRowsAdapter);
     }
