@@ -7,8 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v17.leanback.widget.BaseCardView;
 import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
-import android.support.v17.leanback.widget.Presenter.ViewHolder;
-import android.support.v17.leanback.widget.Util;
 import android.view.View;
 import android.view.ViewGroup;
 

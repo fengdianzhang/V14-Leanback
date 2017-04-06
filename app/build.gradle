@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.orca.tvtutorial"
-        minSdkVersion 21
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -20,6 +20,11 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:leanback-v17:25.3.0'
+    //    compile 'com.android.support:leanback-v17:25.3.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile project(':leanback')
+}
+
+task showMeCache << {
+    configurations.compile.each { println it }
 }

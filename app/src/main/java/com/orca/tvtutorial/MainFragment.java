@@ -84,7 +84,7 @@ public class MainFragment extends BrowseFragment {
     private void loadRows() {
         mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
 
-        HeaderItem gridItemPresenterHeader = new HeaderItem(0, "GridItemPresenter");
+        HeaderItem gridItemPresenterHeader = new HeaderItem("0", "GridItemPresenter");
         GridItemPresenter gridPresenter = new GridItemPresenter();
         ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(gridPresenter);
         gridRowAdapter.add("ITEM 1");
@@ -92,7 +92,7 @@ public class MainFragment extends BrowseFragment {
         gridRowAdapter.add("ITEM 3");
         mRowsAdapter.add(new ListRow(gridItemPresenterHeader, gridRowAdapter));
 
-        HeaderItem cardPresenterHeader = new HeaderItem(1, "CardPresenter");
+        HeaderItem cardPresenterHeader = new HeaderItem("1", "CardPresenter");
         CardPresenter cardPresenter = new CardPresenter();
         ArrayObjectAdapter cardRowAdapter = new ArrayObjectAdapter(cardPresenter);
 
@@ -112,7 +112,7 @@ public class MainFragment extends BrowseFragment {
         }
         mRowsAdapter.add(new ListRow(cardPresenterHeader, cardRowAdapter));
 
-        HeaderItem programPresenterHeader = new HeaderItem(2, "ProgramPresenter");
+        HeaderItem programPresenterHeader = new HeaderItem("2", "ProgramPresenter");
         ProgramPresenter programPresenter = new ProgramPresenter();
         ArrayObjectAdapter programRowAdapter = new ArrayObjectAdapter(programPresenter);
         for (int i = 0; i < 10; i++) {
