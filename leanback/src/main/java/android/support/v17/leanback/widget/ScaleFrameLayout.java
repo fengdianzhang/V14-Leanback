@@ -15,6 +15,7 @@ package android.support.v17.leanback.widget;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.v17.leanback.MigrateHelper;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -100,7 +101,7 @@ public class ScaleFrameLayout extends FrameLayout {
                     gravity = DEFAULT_CHILD_GRAVITY;
                 }
 
-                final int layoutDirection = getLayoutDirection();
+                final int layoutDirection = MigrateHelper.getLayoutDirection(this);
                 final int absoluteGravity = Gravity.getAbsoluteGravity(gravity, layoutDirection);
                 final int verticalGravity = gravity & Gravity.VERTICAL_GRAVITY_MASK;
 

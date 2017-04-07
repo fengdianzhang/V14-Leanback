@@ -100,4 +100,12 @@ public class MigrateHelper {
             ViewGroupCompat.setLayoutMode(parent, layoutMode);
         }
     }
+
+    public static int getLayoutDirection(View view) {
+        if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN_MR1) {
+            return view.getLayoutDirection();
+        } else {
+            return ViewCompat.getLayoutDirection(view);
+        }
+    }
 }

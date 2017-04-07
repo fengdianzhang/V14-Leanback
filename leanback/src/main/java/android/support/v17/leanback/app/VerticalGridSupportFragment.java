@@ -47,7 +47,7 @@ import android.widget.TextView;
  * an {@link ObjectAdapter}.
  */
 public class VerticalGridSupportFragment extends Fragment {
-    private static final String TAG = "VerticalGridSupportFragment";
+    private static final String TAG = "VerticalGridSupportFrag";
     private static boolean DEBUG = false;
 
     private BrowseFrameLayout mBrowseFrame;

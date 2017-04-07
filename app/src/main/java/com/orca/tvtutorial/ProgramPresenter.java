@@ -72,6 +72,9 @@ public class ProgramPresenter extends Presenter {
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
         mContext = parent.getContext();
         ImageView imageView = new ImageView(mContext);
+        imageView.setFocusable(true);
+        imageView.setFocusableInTouchMode(true);
+//        imageView.setgr
         return new ImageViewHolder(imageView);
 //        ImageCardView cardView = new ImageCardView(mContext);
 //        cardView.setCardType(BaseCardView.CARD_TYPE_INFO_UNDER);

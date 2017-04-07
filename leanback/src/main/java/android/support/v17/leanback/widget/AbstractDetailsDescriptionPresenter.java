@@ -30,7 +30,7 @@ import android.widget.TextView;
  *
  * <p>Subclasses will override {@link #onBindDescription} to implement the data
  * binding for this Presenter.
- * 
+ *
  */
 
 @RequiresApi(api = VERSION_CODES.JELLY_BEAN)
