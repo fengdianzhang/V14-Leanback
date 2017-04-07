@@ -13,6 +13,8 @@
  */
 package android.support.v17.leanback.widget;
 
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
 import android.support.v17.leanback.R;
 import android.graphics.Color;
 import android.graphics.Outline;
@@ -20,6 +22,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.view.ViewOutlineProvider;
 import android.view.View;
 
+@RequiresApi(api = VERSION_CODES.LOLLIPOP)
 class RoundedRectHelperApi21 {
 
     private static int sCornerRadius;

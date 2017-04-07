@@ -14,6 +14,7 @@
 package android.support.v17.leanback.widget;
 
 import android.os.Handler;
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.SharedElementCallback;
 import android.support.v4.view.ViewCompat;
@@ -32,7 +33,7 @@ import java.util.List;
 
 final class DetailsOverviewSharedElementHelper extends SharedElementCallback {
 
-    private static final String TAG = "DetailsOverviewSharedElementHelper";
+    private static final String TAG = "DetailsOverviewShar";
     private static final boolean DEBUG = false;
 
     private ViewHolder mViewHolder;
@@ -158,11 +159,11 @@ final class DetailsOverviewSharedElementHelper extends SharedElementCallback {
                 }
             }
         });
-        mViewHolder.mRightPanel.postOnAnimation(new Runnable() {
+        MigrateHelper.postOnAnimation(mViewHolder.mRightPanel, new Runnable() {
             @Override
             public void run() {
                 if (DEBUG) {
-                    Log.d(TAG, "setTransitionName "+mViewHolder.mOverviewFrame);
+                    Log.d(TAG, "setTransitionName " + mViewHolder.mOverviewFrame);
                 }
                 ViewCompat.setTransitionName(mViewHolder.mOverviewFrame, mSharedElementName);
                 final TransitionHelper transitionHelper = TransitionHelper.getInstance();

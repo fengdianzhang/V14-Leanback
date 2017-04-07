@@ -15,10 +15,13 @@ package android.support.v17.leanback.transition;
 
 import android.R;
 import android.content.Context;
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
 import android.transition.ChangeTransform;
 import android.view.Window;
 import android.view.animation.AnimationUtils;
 
+@RequiresApi(api = VERSION_CODES.LOLLIPOP)
 final class TransitionHelperApi21 {
 
     TransitionHelperApi21() {

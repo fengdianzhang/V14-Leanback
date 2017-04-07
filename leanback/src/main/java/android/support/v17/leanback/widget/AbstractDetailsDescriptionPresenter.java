@@ -15,6 +15,8 @@ package android.support.v17.leanback.widget;
 
 import android.graphics.Paint;
 import android.graphics.Paint.FontMetricsInt;
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
 import android.support.v17.leanback.R;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -28,7 +30,10 @@ import android.widget.TextView;
  *
  * <p>Subclasses will override {@link #onBindDescription} to implement the data
  * binding for this Presenter.
+ * 
  */
+
+@RequiresApi(api = VERSION_CODES.JELLY_BEAN)
 public abstract class AbstractDetailsDescriptionPresenter extends Presenter {
 
     public static class ViewHolder extends Presenter.ViewHolder {

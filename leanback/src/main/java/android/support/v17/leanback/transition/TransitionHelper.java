@@ -15,6 +15,8 @@ package android.support.v17.leanback.transition;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -296,6 +298,7 @@ public final class TransitionHelper {
     /**
      * Implementation used on KitKat (and above).
      */
+    @RequiresApi(api = VERSION_CODES.KITKAT)
     private static class TransitionHelperKitkatImpl implements TransitionHelperVersionImpl {
 
         @Override
@@ -465,6 +468,7 @@ public final class TransitionHelper {
         }
     }
 
+    @RequiresApi(api = VERSION_CODES.LOLLIPOP)
     private static final class TransitionHelperApi21Impl extends TransitionHelperKitkatImpl {
 
         @Override

@@ -20,6 +20,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v17.leanback.R;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -35,7 +36,7 @@ import java.util.Collection;
 /**
  * A DetailsOverviewRowPresenter renders a {@link DetailsOverviewRow} to display an
  * overview of an item. Typically this row will be the first row in a fragment
- * such as the {@link android.support.v17.leanback.app.DetailsFragment
+ * such as the {@link android.support.v17.leanback.app.DetailsSupportFragment
  * DetailsFragment}.  View created by DetailsOverviewRowPresenter is made in three parts:
  * ImageView on the left, action list view on the bottom and a customizable detailed
  * description view on the right.
@@ -59,7 +60,7 @@ import java.util.Collection;
  */
 public class DetailsOverviewRowPresenter extends RowPresenter {
 
-    private static final String TAG = "DetailsOverviewRowPresenter";
+    private static final String TAG = "DetailsOverviewR";
     private static final boolean DEBUG = false;
 
     private static final int MORE_ACTIONS_FADE_MS = 100;
@@ -470,8 +471,8 @@ public class DetailsOverviewRowPresenter extends RowPresenter {
             layoutParams.leftMargin = horizontalMargin;
             layoutParams.topMargin = layoutParams.bottomMargin = verticalMargin;
             RoundedRectHelper.getInstance().setRoundedRectBackground(vh.mOverviewFrame, bgColor);
-            vh.mRightPanel.setBackground(null);
-            vh.mImageView.setBackground(null);
+            MigrateHelper.setBackground(vh.mRightPanel, null);
+            MigrateHelper.setBackground(vh.mImageView, null);
         } else {
             layoutParams.leftMargin = layoutParams.topMargin = layoutParams.bottomMargin = 0;
             vh.mRightPanel.setBackgroundColor(bgColor);

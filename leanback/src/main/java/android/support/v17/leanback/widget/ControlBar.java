@@ -15,6 +15,7 @@ package android.support.v17.leanback.widget;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.support.v17.leanback.MigrateHelper;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -76,8 +77,8 @@ class ControlBar extends LinearLayout {
             int measuredWidth = first.getMeasuredWidth() + second.getMeasuredWidth();
             int marginStart = mChildMarginFromCenter - measuredWidth / 2;
             LayoutParams lp = (LayoutParams) second.getLayoutParams();
-            int extraMargin = marginStart - lp.getMarginStart();
-            lp.setMarginStart(marginStart);
+            int extraMargin = marginStart - MigrateHelper.getMarginStart(lp);
+            MigrateHelper.setMarginStart(lp, marginStart);
             second.setLayoutParams(lp);
             totalExtraMargin += extraMargin;
         }

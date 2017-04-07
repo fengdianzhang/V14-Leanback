@@ -14,6 +14,8 @@
 package android.support.v17.leanback.widget;
 
 import android.os.Build;
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
 import android.view.ViewGroup;
 import android.view.View;
 
@@ -109,16 +111,19 @@ final class ShadowHelper {
             // do nothing
         }
 
+        @RequiresApi(api = VERSION_CODES.LOLLIPOP)
         @Override
         public Object addShadow(ViewGroup shadowContainer, boolean roundedCorners) {
             return ShadowHelperApi21.addShadow(shadowContainer, roundedCorners);
         }
 
+        @RequiresApi(api = VERSION_CODES.LOLLIPOP)
         @Override
         public void setShadowFocusLevel(Object impl, float level) {
             ShadowHelperApi21.setShadowFocusLevel(impl, level);
         }
 
+        @RequiresApi(api = VERSION_CODES.LOLLIPOP)
         @Override
         public void setZ(View view, float z) {
             ShadowHelperApi21.setZ(view, z);

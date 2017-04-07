@@ -3,6 +3,7 @@ package com.orca.tvtutorial;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.support.v17.leanback.app.BackgroundManager;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 
 /**
@@ -20,8 +21,8 @@ public class SimpleBackgroundManager {
 
     public SimpleBackgroundManager(Activity activity) {
         this.mActivity = activity;
-        mDefaultBackground = activity.getDrawable(DEFAULT_BACKGROUND_RES_ID);
-        mBackgroundManager = BackgroundManager.getInstance(activity);
+        mDefaultBackground = activity.getResources().getDrawable(DEFAULT_BACKGROUND_RES_ID);
+        mBackgroundManager = BackgroundManager.getInstance((FragmentActivity) activity);
         mBackgroundManager.attach(activity.getWindow());
         activity.getWindowManager().getDefaultDisplay().getMetrics(new DisplayMetrics());
     }

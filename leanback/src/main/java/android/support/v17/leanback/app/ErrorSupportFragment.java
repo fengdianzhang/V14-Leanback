@@ -16,6 +16,7 @@
 package android.support.v17.leanback.app;
 
 import android.os.Bundle;
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v17.leanback.R;
 import android.support.v17.leanback.widget.TitleView;
 import android.text.TextUtils;
@@ -231,7 +232,7 @@ public class ErrorSupportFragment extends Fragment {
     private void updateBackground() {
         if (mErrorFrame != null) {
             if (mBackgroundDrawable != null) {
-                mErrorFrame.setBackground(mBackgroundDrawable);
+                MigrateHelper.setBackground(mErrorFrame, mBackgroundDrawable);
             } else {
                 mErrorFrame.setBackgroundColor(mErrorFrame.getResources().getColor(
                         mIsBackgroundTranslucent ?

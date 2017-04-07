@@ -16,6 +16,7 @@ package android.support.v17.leanback.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v17.leanback.R;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -143,9 +144,9 @@ public class ImageCardView extends BaseCardView {
 
     public void setInfoAreaBackground(Drawable drawable) {
         if (mInfoArea != null) {
-            mInfoArea.setBackground(drawable);
+            MigrateHelper.setBackground(mInfoArea, drawable);
             if (mBadgeImage != null) {
-                mBadgeImage.setBackground(drawable);
+                MigrateHelper.setBackground(mBadgeImage, drawable);
             }
         }
     }

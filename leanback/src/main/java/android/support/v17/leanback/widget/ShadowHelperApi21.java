@@ -13,6 +13,8 @@
  */
 package android.support.v17.leanback.widget;
 
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
 import android.support.v17.leanback.R;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -23,6 +25,7 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 
+@RequiresApi(api = VERSION_CODES.LOLLIPOP)
 class ShadowHelperApi21 {
 
     static int sNormalZ = Integer.MIN_VALUE;

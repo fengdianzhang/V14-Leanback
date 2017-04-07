@@ -17,8 +17,6 @@ package android.support.v17.leanback.app;
 
 import java.util.ArrayList;
 
-import android.animation.TimeAnimator;
-import android.animation.TimeAnimator.TimeListener;
 import android.os.Bundle;
 import android.support.v17.leanback.R;
 import android.support.v17.leanback.widget.ItemBridgeAdapter;
@@ -41,6 +39,9 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
+
+import com.nineoldandroids.animation.TimeAnimator;
+import com.nineoldandroids.animation.TimeAnimator.TimeListener;
 
 /**
  * An ordered set of rows of leanback widgets.

@@ -1073,6 +1073,7 @@ final class GridLayoutManager extends RecyclerView.LayoutManager {
                     addView(v, 0);
                 }
                 if (mChildVisibility != -1) {
+                    //noinspection WrongConstant
                     v.setVisibility(mChildVisibility);
                 }
 
@@ -2610,6 +2611,7 @@ final class GridLayoutManager extends RecyclerView.LayoutManager {
         if (mChildVisibility != -1) {
             int count = getChildCount();
             for (int i= 0; i < count; i++) {
+                //noinspection WrongConstant
                 getChildAt(i).setVisibility(mChildVisibility);
             }
         }

@@ -3,9 +3,12 @@ package com.orca.tvtutorial;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v17.leanback.app.BackgroundManager;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -40,8 +43,12 @@ public class PicassoBackgroundManager {
 
     public PicassoBackgroundManager (Activity activity) {
         mActivity = activity;
-        mDefaultBackground = activity.getDrawable(DEFAULT_BACKGROUND_RES_ID);
-        mBackgroundManager = BackgroundManager.getInstance(activity);
+        if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+            mDefaultBackground = activity.getDrawable(DEFAULT_BACKGROUND_RES_ID);
+        } else {
+            mDefaultBackground = activity.getResources().getDrawable(DEFAULT_BACKGROUND_RES_ID);
+        }
+        mBackgroundManager = BackgroundManager.getInstance((FragmentActivity) activity);
         mBackgroundManager.attach(activity.getWindow());
         mBackgroundTarget = new PicassoBackgroundManagerTarget(mBackgroundManager);
         mMetrics = new DisplayMetrics();

@@ -21,6 +21,7 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
+import android.support.v17.leanback.MigrateHelper;
 import android.view.InputEvent;
 import android.view.animation.AccelerateInterpolator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
@@ -76,7 +77,7 @@ public class PlaybackOverlaySupportFragment extends DetailsSupportFragment {
         }
     }
 
-    private static final String TAG = "PlaybackOverlaySupportFragment";
+    private static final String TAG = "PlaybackOverlaySupportF";
     private static final boolean DEBUG = false;
     private static final int ANIMATION_MULTIPLIER = 1;
 
@@ -605,7 +606,7 @@ public class PlaybackOverlaySupportFragment extends DetailsSupportFragment {
                 case BG_LIGHT: color = mBgLightColor; break;
                 case BG_NONE: color = Color.TRANSPARENT; break;
             }
-            mRootView.setBackground(new ColorDrawable(color));
+            MigrateHelper.setBackground(mRootView, new ColorDrawable(color));
         }
     }
 

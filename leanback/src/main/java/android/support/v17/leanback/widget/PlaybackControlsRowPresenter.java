@@ -13,6 +13,7 @@
  */
 package android.support.v17.leanback.widget;
 
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v17.leanback.R;
 import android.support.v17.leanback.widget.ControlBarPresenter.OnControlClickedListener;
 import android.support.v17.leanback.widget.ControlBarPresenter.OnControlSelectedListener;
@@ -29,7 +30,7 @@ import android.widget.ImageView;
 /**
  * A PlaybackControlsRowPresenter renders a {@link PlaybackControlsRow} to display a
  * series of playback control buttons. Typically this row will be the first row in a fragment
- * such as the {@link android.support.v17.leanback.app.PlaybackOverlayFragment
+ * such as the {@link android.support.v17.leanback.app.PlaybackOverlaySupportFragment
  * PlaybackControlsFragment}.
  */
 public class PlaybackControlsRowPresenter extends RowPresenter {
@@ -319,8 +320,8 @@ public class PlaybackControlsRowPresenter extends RowPresenter {
         vh.mCardHeight = vh.mCard.getLayoutParams().height;
 
         MarginLayoutParams lp = (MarginLayoutParams) vh.mControlsDock.getLayoutParams();
-        vh.mControlsDockMarginStart = lp.getMarginStart();
-        vh.mControlsDockMarginEnd = lp.getMarginEnd();
+        vh.mControlsDockMarginStart = MigrateHelper.getMarginStart(lp);
+        vh.mControlsDockMarginEnd = MigrateHelper.getMarginEnd(lp);
 
         vh.mControlsVh = (PlaybackControlsPresenter.ViewHolder)
                 mPlaybackControlsPresenter.onCreateViewHolder(vh.mControlsDock);
@@ -366,14 +367,14 @@ public class PlaybackControlsRowPresenter extends RowPresenter {
         if (row.getImageDrawable() == null || row.getItem() == null) {
             vh.mImageView.setImageDrawable(null);
             vh.setBackground(vh.mControlsDock);
-            lp.setMarginStart(0);
-            lp.setMarginEnd(0);
+            MigrateHelper.setMarginStart(lp, 0);
+            MigrateHelper.setMarginEnd(lp, 0);
             mPlaybackControlsPresenter.enableTimeMargins(vh.mControlsVh, true);
         } else {
             vh.mImageView.setImageDrawable(row.getImageDrawable());
             vh.setBackground(vh.mCard);
-            lp.setMarginStart(vh.mControlsDockMarginStart);
-            lp.setMarginEnd(vh.mControlsDockMarginEnd);
+            MigrateHelper.setMarginStart(lp, vh.mControlsDockMarginStart);
+            MigrateHelper.setMarginEnd(lp, vh.mControlsDockMarginEnd);
             mPlaybackControlsPresenter.enableTimeMargins(vh.mControlsVh, false);
         }
         vh.mControlsDock.setLayoutParams(lp);

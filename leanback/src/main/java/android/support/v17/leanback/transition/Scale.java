@@ -17,11 +17,14 @@ package android.support.v17.leanback.transition;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewGroup;
 import android.transition.Transition;
 import android.transition.TransitionValues;
 
+@RequiresApi(api = VERSION_CODES.KITKAT)
 class Scale extends Transition {
     private static final String PROPNAME_SCALE = "android:leanback:scale";
 

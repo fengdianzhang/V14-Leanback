@@ -3,7 +3,7 @@ package com.orca.tvtutorial;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v17.leanback.app.BrowseFragment;
+import android.support.v17.leanback.app.BrowseSupportFragment;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
@@ -25,7 +25,7 @@ import android.widget.TextView;
  * @version 1.0
  */
 
-public class MainFragment extends BrowseFragment {
+public class MainFragment extends BrowseSupportFragment {
     private static final String TAG = MainFragment.class.getSimpleName();
     private static final int GRID_ITEM_WIDTH = 300;
     private static final int GRID_ITEM_HEIGHT = 200;
@@ -59,7 +59,7 @@ public class MainFragment extends BrowseFragment {
         public void onItemSelected(ViewHolder itemViewHolder, Object item, RowPresenter.ViewHolder rowViewHolder, Row row) {
             if (item instanceof String) {
 //                simpleBackgroundManager.clearBackground();
-                picassoBackgroundManager.updateBackgroundWithDelay("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/10/RIMG0656.jpg");
+                picassoBackgroundManager.updateBackgroundWithDelay("http://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/n/nuijxf6k13t6z9b_q.jpg");
             } else if (item instanceof Movie) {
 //                simpleBackgroundManager.updateBackground(getActivity().getDrawable(R.drawable.movie));
                 picassoBackgroundManager.updateBackgroundWithDelay(((Movie) item).getCardImageUrl());
@@ -99,11 +99,11 @@ public class MainFragment extends BrowseFragment {
         for (int i = 0; i < 10; i++) {
             Movie movie = new Movie();
             if (i % 3 == 0) {
-                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+                movie.setCardImageUrl("http://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/t/t8zqyo8d1mvta9h_q.jpg");
             } else if (i % 3 == 1) {
-                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02630.jpg");
+                movie.setCardImageUrl("http://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/5/5uaddbgn91womet_q.jpg");
             } else {
-                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02529.jpg");
+                movie.setCardImageUrl("http://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/f/f2tenn0sqzh7m7b_q.jpg");
             }
             movie.setTitle("title " + i);
             movie.setStudio("studio " + i);

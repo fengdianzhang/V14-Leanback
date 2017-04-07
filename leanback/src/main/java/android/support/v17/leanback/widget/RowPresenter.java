@@ -13,7 +13,7 @@
  */
 package android.support.v17.leanback.widget;
 
-import android.support.v17.leanback.app.HeadersFragment;
+import android.support.v17.leanback.app.HeadersSupportFragment;
 import android.support.v17.leanback.graphics.ColorOverlayDimmer;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +25,7 @@ import android.view.ViewGroup;
  * When a subclass of RowPresenter adds UI widgets, it should subclass
  * {@link ViewHolder} and override {@link #createRowViewHolder(ViewGroup)}
  * and {@link #initializeRowViewHolder(ViewHolder)}. The subclass must use layout id
- * "row_content" for the widget that will be aligned to the title of any {@link HeadersFragment}
+ * "row_content" for the widget that will be aligned to the title of any {@link HeadersSupportFragment}
  * that may exist in the parent fragment. RowPresenter contains an optional and
  * replaceable {@link RowHeaderPresenter} that renders the header. You can disable
  * the default rendering or replace the Presenter with a new header presenter

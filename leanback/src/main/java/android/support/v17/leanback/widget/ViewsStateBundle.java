@@ -40,6 +40,7 @@ import static android.support.v17.leanback.widget.BaseGridView.SAVE_ALL_CHILD;
  * The class is currently used within {@link GridLayoutManager}, but it might be used by other
  * ViewGroup.
  */
+@SuppressWarnings("JavadocReference")
 class ViewsStateBundle {
 
     public static final int LIMIT_DEFAULT = 100;

@@ -13,6 +13,7 @@
  */
 package android.support.v17.leanback.widget;
 
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v17.leanback.R;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,12 +28,12 @@ class ShadowHelperJbmr2 {
 
     /* prepare parent for allowing shadows of a child */
     public static void prepareParent(ViewGroup parent) {
-        parent.setLayoutMode(ViewGroup.LAYOUT_MODE_OPTICAL_BOUNDS);
+        MigrateHelper.setLayoutMode(parent, ViewGroup.LAYOUT_MODE_OPTICAL_BOUNDS);
     }
 
     /* add shadows and return a implementation detail object */
     public static Object addShadow(ViewGroup shadowContainer) {
-        shadowContainer.setLayoutMode(ViewGroup.LAYOUT_MODE_OPTICAL_BOUNDS);
+        MigrateHelper.setLayoutMode(shadowContainer, ViewGroup.LAYOUT_MODE_OPTICAL_BOUNDS);
         LayoutInflater inflater = LayoutInflater.from(shadowContainer.getContext());
         inflater.inflate(R.layout.lb_shadow, shadowContainer, true);
         ShadowImpl impl = new ShadowImpl();

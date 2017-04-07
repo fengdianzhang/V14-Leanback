@@ -15,6 +15,7 @@
  */
 package android.support.v17.leanback.app;
 
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v17.leanback.R;
 import android.support.v17.leanback.transition.TransitionHelper;
 import android.support.v17.leanback.transition.TransitionListener;
@@ -205,7 +206,7 @@ public class BrowseSupportFragment extends Fragment {
 
     // transition related:
     private static TransitionHelper sTransitionHelper = TransitionHelper.getInstance();
-    private int mReparentHeaderId = View.generateViewId();
+    private int mReparentHeaderId = MigrateHelper.generateViewId();
     private Object mSceneWithTitle;
     private Object mSceneWithoutTitle;
     private Object mSceneWithHeaders;

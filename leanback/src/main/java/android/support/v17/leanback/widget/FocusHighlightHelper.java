@@ -18,8 +18,10 @@ import android.support.v17.leanback.graphics.ColorOverlayDimmer;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
-import android.animation.TimeAnimator;
 import android.content.res.Resources;
+
+import com.nineoldandroids.animation.TimeAnimator;
+
 import static android.support.v17.leanback.widget.FocusHighlight.ZOOM_FACTOR_NONE;
 import static android.support.v17.leanback.widget.FocusHighlight.ZOOM_FACTOR_SMALL;
 import static android.support.v17.leanback.widget.FocusHighlight.ZOOM_FACTOR_MEDIUM;
@@ -196,6 +198,7 @@ public class FocusHighlightHelper {
             lazyInit(gridView.getContext().getResources());
         }
 
+        @SuppressWarnings("ResourceType")
         private static void lazyInit(Resources res) {
             if (!sInitialized) {
                 sSelectScale =

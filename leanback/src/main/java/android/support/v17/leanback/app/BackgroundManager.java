@@ -15,6 +15,7 @@ package android.support.v17.leanback.app;
 
 import java.lang.ref.WeakReference;
 
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v17.leanback.R;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -258,7 +259,7 @@ public final class BackgroundManager {
      * Shared memory continuity service.
      */
     private static class BackgroundContinuityService {
-        private static final String TAG = "BackgroundContinuityService";
+        private static final String TAG = "BackgroundContinuitySe";
         private static boolean DEBUG = BackgroundManager.DEBUG;
 
         private static BackgroundContinuityService sService = new BackgroundContinuityService();
@@ -337,21 +338,8 @@ public final class BackgroundManager {
      * Activity. Subsequent calls will return the same BackgroundManager created
      * for this Activity.
      */
-    public static BackgroundManager getInstance(Activity activity) {
-        if (activity instanceof FragmentActivity) {
-            return getSupportInstance((FragmentActivity) activity);
-        }
-        BackgroundFragment fragment = (BackgroundFragment) activity.getFragmentManager()
-                .findFragmentByTag(FRAGMENT_TAG);
-        if (fragment != null) {
-            BackgroundManager manager = fragment.getBackgroundManager();
-            if (manager != null) {
-                return manager;
-            }
-            // manager is null: this is a fragment restored by FragmentManager,
-            // fall through to create a BackgroundManager attach to it.
-        }
-        return new BackgroundManager(activity, false);
+    public static BackgroundManager getInstance(FragmentActivity activity) {
+        return getSupportInstance((FragmentActivity) activity);
     }
 
     private static BackgroundManager getSupportInstance(FragmentActivity activity) {
@@ -385,25 +373,7 @@ public final class BackgroundManager {
 
         if (isSupportFragmentActivity) {
             createSupportFragment((FragmentActivity) activity);
-        } else {
-            createFragment(activity);
         }
-    }
-
-    private void createFragment(Activity activity) {
-        // Use a fragment to ensure the background manager gets detached properly.
-        BackgroundFragment fragment = (BackgroundFragment) activity.getFragmentManager()
-                .findFragmentByTag(FRAGMENT_TAG);
-        if (fragment == null) {
-            fragment = new BackgroundFragment();
-            activity.getFragmentManager().beginTransaction().add(fragment, FRAGMENT_TAG).commit();
-        } else {
-            if (fragment.getBackgroundManager() != null) {
-                throw new IllegalStateException("Created duplicated BackgroundManager for same " +
-                        "activity, please use getInstance() instead");
-            }
-        }
-        fragment.setBackgroundManager(this);
     }
 
     private void createSupportFragment(FragmentActivity activity) {
@@ -463,7 +433,7 @@ public final class BackgroundManager {
 
         mLayerDrawable = (LayerDrawable) ContextCompat.getDrawable(mContext,
                 R.drawable.lb_background).mutate();
-        mBgView.setBackground(mLayerDrawable);
+        MigrateHelper.setBackground(mBgView, mLayerDrawable);
 
         mLayerDrawable.setDrawableByLayerId(R.id.background_imageout, createEmptyDrawable());
 

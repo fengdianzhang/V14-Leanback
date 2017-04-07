@@ -22,6 +22,8 @@ import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.util.Property;
 import android.view.View;
@@ -37,6 +39,7 @@ import android.support.v17.leanback.R;
  * Slide distance toward/from a edge.  The direction and distance are determined by
  * {@link SlideCallback}.
  */
+@RequiresApi(api = VERSION_CODES.KITKAT)
 class Slide extends Visibility {
     private static final String TAG = "Slide";
 

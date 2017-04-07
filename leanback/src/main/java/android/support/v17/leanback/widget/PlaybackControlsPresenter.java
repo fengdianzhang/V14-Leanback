@@ -20,6 +20,7 @@ import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.support.v17.leanback.MigrateHelper;
 import android.support.v17.leanback.R;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ import android.widget.TextView;
 /**
  * A presenter for a control bar that supports "more actions",
  * and toggling the set of controls between primary and secondary
- * sets of {@link Actions}.
+ * sets of {@link Action}.
  */
 class PlaybackControlsPresenter extends ControlBarPresenter {
 
@@ -86,9 +87,9 @@ class PlaybackControlsPresenter extends ControlBarPresenter {
                 }
             };
             mCurrentTimeMarginStart =
-                    ((MarginLayoutParams) mCurrentTime.getLayoutParams()).getMarginStart();
+                    MigrateHelper.getMarginStart((MarginLayoutParams) mCurrentTime.getLayoutParams());
             mTotalTimeMarginEnd =
-                    ((MarginLayoutParams) mTotalTime.getLayoutParams()).getMarginEnd();
+                    MigrateHelper.getMarginEnd((MarginLayoutParams) mTotalTime.getLayoutParams());
         }
 
         void showMoreActions(boolean show) {
@@ -265,11 +266,11 @@ class PlaybackControlsPresenter extends ControlBarPresenter {
     public void enableTimeMargins(ViewHolder vh, boolean enable) {
         MarginLayoutParams lp;
         lp = (MarginLayoutParams) vh.mCurrentTime.getLayoutParams();
-        lp.setMarginStart(enable ? vh.mCurrentTimeMarginStart : 0);
+        MigrateHelper.setMarginStart(lp, enable ? vh.mCurrentTimeMarginStart : 0);
         vh.mCurrentTime.setLayoutParams(lp);
 
         lp = (MarginLayoutParams) vh.mTotalTime.getLayoutParams();
-        lp.setMarginEnd(enable ? vh.mTotalTimeMarginEnd : 0);
+        MigrateHelper.setMarginEnd(lp, enable ? vh.mTotalTimeMarginEnd : 0);
         vh.mTotalTime.setLayoutParams(lp);
     }
 

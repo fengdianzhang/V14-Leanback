@@ -16,6 +16,9 @@ package android.support.v17.leanback.widget;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
+import android.os.Build.VERSION_CODES;
+import android.support.annotation.RequiresApi;
+import android.support.v17.leanback.MigrateHelper;
 import android.view.View;
 
 /**
@@ -73,7 +76,7 @@ final class RoundedRectHelper {
 
         @Override
         public void clearBackground(View view) {
-            view.setBackground(null);
+            MigrateHelper.setBackground(view, null);
         }
     }
 
@@ -81,11 +84,13 @@ final class RoundedRectHelper {
      * Implementation used on api 21 (and above).
      */
     private static final class Api21Impl implements Impl {
+        @RequiresApi(api = VERSION_CODES.LOLLIPOP)
         @Override
         public void setRoundedRectBackground(View view, int color) {
             RoundedRectHelperApi21.setRoundedRectBackground(view, color);
         }
 
+        @RequiresApi(api = VERSION_CODES.LOLLIPOP)
         @Override
         public void clearBackground(View view) {
             RoundedRectHelperApi21.clearBackground(view);

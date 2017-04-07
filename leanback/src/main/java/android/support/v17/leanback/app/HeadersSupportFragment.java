@@ -20,6 +20,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.GradientDrawable.Orientation;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.support.v17.leanback.R;
 import android.support.v17.leanback.widget.FocusHighlightHelper;
@@ -217,8 +220,13 @@ public class HeadersSupportFragment extends BaseRowSupportFragment {
         Drawable background = fadingView.getBackground();
         if (background instanceof GradientDrawable) {
             background.mutate();
-            ((GradientDrawable) background).setColors(
-                    new int[] {Color.TRANSPARENT, backgroundColor});
+            if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
+                ((GradientDrawable) background).setColors(
+                        new int[]{Color.TRANSPARENT, backgroundColor});
+            } else {
+                 background = new GradientDrawable(Orientation.LEFT_RIGHT,
+                        new int[]{Color.TRANSPARENT, backgroundColor});
+            }
         }
     }
 

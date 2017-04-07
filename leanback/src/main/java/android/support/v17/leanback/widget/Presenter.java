@@ -13,6 +13,7 @@
  */
 package android.support.v17.leanback.widget;
 
+import android.support.v17.leanback.MigrateHelper;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -117,11 +118,11 @@ public abstract class Presenter {
      * Utility method for removing all running animations on a view.
      */
     protected static void cancelAnimationsRecursive(View view) {
-        if (view.hasTransientState()) {
+        if (MigrateHelper.hasTransientState(view)) {
             view.animate().cancel();
             if (view instanceof ViewGroup) {
                 final int count = ((ViewGroup) view).getChildCount();
-                for (int i = 0; view.hasTransientState() && i < count; i++) {
+                for (int i = 0; MigrateHelper.hasTransientState(view) && i < count; i++) {
                     cancelAnimationsRecursive(((ViewGroup) view).getChildAt(i));
                 }
             }
