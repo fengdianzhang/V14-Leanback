@@ -429,7 +429,7 @@
     <item name="lb_search_bar_speech_orb_max_level_zoom" type="fraction">144%</item>
     <item name="lb_search_orb_focused_zoom" type="fraction">120%</item>
     <item name="lb_view_active_level" type="fraction">0%</item>
-    <item name="lb_view_dimmed_level" type="fraction">60%</item>
+    <item name="lb_view_dimmed_level" type="fraction">0%</item>
     <item name="lb_control_closed_captioning" type="id"/>
     <item name="lb_control_fast_forward" type="id"/>
     <item name="lb_control_fast_rewind" type="id"/>

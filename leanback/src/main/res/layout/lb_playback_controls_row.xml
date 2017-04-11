@@ -58,7 +58,9 @@
                 android:layout_marginStart="@dimen/lb_playback_description_margin_start"
                 android:layout_marginTop="@dimen/lb_playback_description_margin_top"
                 android:layout_weight="1"
-                android:gravity="top" />
+                android:gravity="top"
+                android:layout_marginRight="@dimen/lb_playback_description_margin_end"
+                android:layout_marginLeft="@dimen/lb_playback_description_margin_start"/>
 
             <!-- Space here prevents room only for title and subtitle above -->
 
@@ -72,7 +74,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/lb_playback_description_margin_end"
-                android:layout_marginStart="@dimen/lb_playback_description_margin_start" />
+                android:layout_marginStart="@dimen/lb_playback_description_margin_start"
+                android:layout_marginRight="@dimen/lb_playback_description_margin_end"
+                android:layout_marginLeft="@dimen/lb_playback_description_margin_start"/>
         </LinearLayout>
     </LinearLayout>
 

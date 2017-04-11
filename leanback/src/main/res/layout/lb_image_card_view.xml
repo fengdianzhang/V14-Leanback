@@ -48,7 +48,8 @@
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/lb_basic_card_title_text_color"
                 android:textSize="@dimen/lb_basic_card_title_text_size"
-                android:ellipsize="end" />
+                android:ellipsize="end"
+                android:layout_alignParentLeft="true"/>
             <TextView
                 android:id="@+id/content_text"
                 android:layout_width="match_parent"
@@ -80,7 +81,8 @@
                 android:layout_toStartOf="@id/extra_badge"
                 android:scaleType="fitCenter"
                 android:visibility="gone"
-                android:contentDescription="@null" />
+                android:contentDescription="@null"
+                android:layout_toLeftOf="@id/extra_badge"/>
         </RelativeLayout>
     </android.support.v17.leanback.widget.NonOverlappingFrameLayout>
 </merge>

@@ -54,7 +54,8 @@
             android:layout_gravity="top|start"
             android:layout_marginStart="@dimen/lb_playback_current_time_margin_start"
             android:paddingTop="@dimen/lb_playback_time_padding_top"
-            style="?attr/playbackControlsTimeStyle" />
+            style="?attr/playbackControlsTimeStyle"
+            android:layout_marginLeft="@dimen/lb_playback_current_time_margin_start"/>
 
         <TextView
             android:id="@+id/total_time"
@@ -63,7 +64,8 @@
             android:layout_gravity="top|end"
             android:layout_marginEnd="@dimen/lb_playback_total_time_margin_end"
             android:paddingTop="@dimen/lb_playback_time_padding_top"
-            style="?attr/playbackControlsTimeStyle" />
+            style="?attr/playbackControlsTimeStyle"
+            android:layout_marginRight="@dimen/lb_playback_total_time_margin_end"/>
 
     </FrameLayout>
 
