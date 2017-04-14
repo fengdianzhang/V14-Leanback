@@ -1,1 +1,1 @@
-include ':app', ':leanback'
+include ':sample', ':leanback'

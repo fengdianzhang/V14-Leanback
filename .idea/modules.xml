@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TvTutorial.iml" filepath="$PROJECT_DIR$/TvTutorial.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/V14-Leanback.iml" filepath="$PROJECT_DIR$/V14-Leanback.iml" />
       <module fileurl="file://$PROJECT_DIR$/leanback/leanback.iml" filepath="$PROJECT_DIR$/leanback/leanback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
   </component>
 </project>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v17.leanback.app.BrowseSupportFragment;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
+import android.support.v17.leanback.widget.BaseCardView;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
@@ -16,8 +17,12 @@ import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -84,15 +89,15 @@ public class MainFragment extends BrowseSupportFragment {
     private void loadRows() {
         mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
 
-        HeaderItem gridItemPresenterHeader = new HeaderItem("0", "GridItemPresenter");
-        GridItemPresenter gridPresenter = new GridItemPresenter();
-        ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(gridPresenter);
-        gridRowAdapter.add("ITEM 1");
-        gridRowAdapter.add("ITEM 2");
-        gridRowAdapter.add("ITEM 3");
-        mRowsAdapter.add(new ListRow(gridItemPresenterHeader, gridRowAdapter));
+//        HeaderItem gridItemPresenterHeader = new HeaderItem("0", "GridItemPresenter");
+//        GridItemPresenter gridPresenter = new GridItemPresenter();
+//        ArrayObjectAdapter gridRowAdapter = new ArrayObjectAdapter(gridPresenter);
+//        gridRowAdapter.add("ITEM 1");
+//        gridRowAdapter.add("ITEM 2");
+//        gridRowAdapter.add("ITEM 3");
+//        mRowsAdapter.add(new ListRow(gridItemPresenterHeader, gridRowAdapter));
 
-        HeaderItem cardPresenterHeader = new HeaderItem("1", "CardPresenter");
+        HeaderItem cardPresenterHeader = new HeaderItem("大家都在看", null);
         CardPresenter cardPresenter = new CardPresenter();
         ArrayObjectAdapter cardRowAdapter = new ArrayObjectAdapter(cardPresenter);
 
@@ -111,26 +116,27 @@ public class MainFragment extends BrowseSupportFragment {
             cardRowAdapter.add(movie);
         }
         mRowsAdapter.add(new ListRow(cardPresenterHeader, cardRowAdapter));
+        mRowsAdapter.add(new ListRow(cardPresenterHeader, cardRowAdapter));
+        mRowsAdapter.add(new ListRow(cardPresenterHeader, cardRowAdapter));
 
-        HeaderItem programPresenterHeader = new HeaderItem("2", "ProgramPresenter");
-        ProgramPresenter programPresenter = new ProgramPresenter();
-        ArrayObjectAdapter programRowAdapter = new ArrayObjectAdapter(programPresenter);
-        for (int i = 0; i < 10; i++) {
-            Movie movie = new Movie();
-            if (i % 3 == 0) {
-                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
-            } else if (i % 3 == 1) {
-                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02630.jpg");
-            } else {
-                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02529.jpg");
-            }
-            movie.setTitle("title " + i);
-            movie.setStudio("studio " + i);
-//            movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
-            programRowAdapter.add(movie);
-        }
-        mRowsAdapter.add(new ListRow(programPresenterHeader, programRowAdapter));
-
+//        HeaderItem programPresenterHeader = new HeaderItem("2", "ProgramPresenter");
+//        ProgramPresenter programPresenter = new ProgramPresenter();
+//        ArrayObjectAdapter programRowAdapter = new ArrayObjectAdapter(programPresenter);
+//        for (int i = 0; i < 10; i++) {
+//            Movie movie = new Movie();
+//            if (i % 3 == 0) {
+//                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+//            } else if (i % 3 == 1) {
+//                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02630.jpg");
+//            } else {
+//                movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02529.jpg");
+//            }
+//            movie.setTitle("title " + i);
+//            movie.setStudio("studio " + i);
+////            movie.setCardImageUrl("http://heimkehrend.raindrop.jp/kl-hacker/wp-content/uploads/2014/08/DSC02580.jpg");
+//            programRowAdapter.add(movie);
+//        }
+//        mRowsAdapter.add(new ListRow(programPresenterHeader, programRowAdapter));
         setAdapter(mRowsAdapter);
     }
 
@@ -138,19 +144,21 @@ public class MainFragment extends BrowseSupportFragment {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent) {
+//            BaseCardView view = (BaseCardView) LayoutInflater.from(getContext()).inflate(R.layout.test_card_view, null, false);
             TextView view = new TextView(parent.getContext());
+//            View view = LayoutInflater.from(getContext()).inflate(R.layout.text_card, null);
             view.setLayoutParams(new ViewGroup.LayoutParams(GRID_ITEM_WIDTH, GRID_ITEM_HEIGHT));
             view.setFocusable(true);
             view.setFocusableInTouchMode(true);
             view.setBackgroundColor(getResources().getColor(R.color.default_background));
             view.setTextColor(Color.WHITE);
-            view.setGravity(Gravity.CENTER);
+
             return new ViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, Object item) {
-            ((TextView) viewHolder.view).setText((String) item);
+//            ((TextView) viewHolder.view).setText((String) item);
         }
 
         @Override
